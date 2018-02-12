@@ -26,7 +26,7 @@ class Search extends PureComponent {
     };
     const { width } = Dimensions.get('window');
     this.contentWidth = width;
-    this.middleWidth = width / 2;
+    this.middleWidth = this.props.middleWidth || width / 2;
     this.cancelButtonWidth = this.props.cancelButtonWidth || 70;
 
     /**
@@ -82,7 +82,7 @@ class Search extends PureComponent {
   onLayout = event => {
     const contentWidth = event.nativeEvent.layout.width;
     this.contentWidth = contentWidth;
-    this.middleWidth = contentWidth / 2;
+    this.middleWidth = this.props.middleWidth || contentWidth / 2;
     if (this.state.expanded) {
       this.expandAnimation();
     } else {
