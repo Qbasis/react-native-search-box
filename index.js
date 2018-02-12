@@ -250,7 +250,7 @@ class Search extends PureComponent {
   };
 
   render() {
-    const styles = getStyles(this.props.inputHeight);
+    const styles = getStyles(this.props.containerHeight || containerHeight, this.props.inputHeight);
     return (
       <Animated.View
         ref="searchContainer"
@@ -383,7 +383,7 @@ class Search extends PureComponent {
   }
 }
 
-const getStyles = (inputHeight) => {
+const getStyles = (containerHeight, inputHeight) => {
   let middleHeight = 20
   if (typeof inputHeight == 'number')
     middleHeight = (10 + inputHeight) / 2;
@@ -505,6 +505,7 @@ Search.propTypes = {
   cancelButtonTextStyle: Text.propTypes.style,
 
   cancelButtonViewStyle: PropTypes.oneOfType([PropTypes.object, ViewPropTypes.style]),
+  containerHeight: PropTypes.number,
 
   /**
      * text input
