@@ -317,6 +317,7 @@ class Search extends PureComponent {
                 style={[
                   styles.iconSearch,
                   styles.iconSearchDefault,
+                  this.props.iconSearchStyle && this.props.iconSearchStyle,
                   this.props.tintColorSearch && {
                     tintColor: this.props.tintColorSearch
                   },
@@ -497,9 +498,16 @@ Search.propTypes = {
   inputStyle: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.object,
-	ViewPropTypes.style,
+    ViewPropTypes.style,
     Text.propTypes.style
   ]),
+  iconSearchStyle: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.object,
+    ViewPropTypes.style,
+    Text.propTypes.style
+  ]),
+
   cancelButtonStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.object, ViewPropTypes.style, Text.propTypes.style]),
   onLayout: PropTypes.func,
   cancelButtonTextStyle: Text.propTypes.style,
