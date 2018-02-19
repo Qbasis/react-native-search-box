@@ -101,6 +101,7 @@ class Search extends PureComponent {
       await Keyboard.dismiss();
     }
     this.props.onSearch && (await this.props.onSearch(this.state.keyword));
+    this.props.clearOnSearch && await this.setState({ keyword: ''});
     this.props.afterSearch &&
       (await this.props.afterSearch(this.state.keyword));
   };
@@ -533,6 +534,7 @@ Search.propTypes = {
   blurOnSubmit: PropTypes.bool,
   keyboardShouldPersist: PropTypes.bool,
   useClearButton: PropTypes.bool,
+  clearOnSearch: PropTypes.bool,
 
   /**
      * Positioning
@@ -573,6 +575,7 @@ Search.defaultProps = {
   shadowRadius: 4,
   shadowVisible: false,
   useClearButton: true,
+  clearOnSearch: false
 };
 
 export default Search;
